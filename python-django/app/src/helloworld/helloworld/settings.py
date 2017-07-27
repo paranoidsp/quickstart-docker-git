@@ -25,12 +25,13 @@ SECRET_KEY = '&+lkr8pw44@tc@7jsa72wcu61j^at4#o_)ox(wy+4pwum@#nbx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'hi.apps.HiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,8 +80,8 @@ DATABASES = {
          'NAME': 'hasuradb',
          'USER': os.environ.get('POSTGRES_USER'),
          'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-         'HOST': 'localhost',
-         'PORT': '5432',
+         'HOST': os.environ.get('POSTGRES_HOST'),
+         'PORT': os.environ.get('POSTGRES_PORT'),
      }
  }
 
